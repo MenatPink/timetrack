@@ -1,0 +1,41 @@
+@import "../variables";
+
+
+
+
+
+.card{
+    background-color: $light-red;
+    width:255px;
+    height:250px;
+    border-radius:10px;
+    background-image: uri("");
+    position:relative;
+    h1, h2, p{
+        color:white;
+    }
+}
+
+.card-inner{
+    position:absolute;
+    bottom:0;
+    background-color:$dark-blue;
+    width:100%;
+    border-radius:10px 10px 10px 10px;
+}
+
+.card-content{
+    width:80%;
+    margin:auto;
+    p{
+        font-size:0.9em;
+    }
+    h1{
+        margin-top:0.6em;
+        font-size:3em;
+    }
+    .card-caption{
+        font-size:0.8em;
+        color:$desaturated-blue;
+    }
+}

@@ -1,0 +1,16 @@
+.grid{
+    display:grid;
+    grid-gap: 30px 30px;
+    grid-template-columns: auto auto auto auto;
+    grid-template-rows: auto auto;
+    justify-content:space-evenly;
+}
+
+//MEDIA - Mobile
+
+@media screen and (max-width: 375px) {
+    .grid{
+        grid-template-columns:auto;
+        grid-template-rows: auto auto auto auto auto auto;
+    }
+}
