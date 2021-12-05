@@ -6,3 +6,45 @@
     border-radius:10px;
     width:255px;
 }
+
+.profile-card-inner{
+    background-color:$blue;
+    border-radius:10px;
+    img{
+        width:75px;
+        border: 2px solid white;
+        border-radius:50px;
+        margin-top:2em;
+        // margin-left:1em;
+    }
+}
+
+.profile-card-content{
+    width:80%;
+    margin:auto;
+    p{
+        font-size:0.8em;
+        color:$pale-blue;
+    }
+    h1{
+        font-size:2.5em;
+        margin-top:10px;
+        padding-bottom:2em;;
+    }
+}
+.time-selector-container{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    height:calc(100% - 338.7px);
+    width:80%;
+    margin:auto;
+    li{
+        transition:color 0.25s ease-in;
+        color:$pale-blue;
+        cursor:pointer;
+        &:hover{
+            color:white;
+        }
+    }
+}
