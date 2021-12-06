@@ -9,10 +9,13 @@
     width:255px;
     height:250px;
     border-radius:10px;
-    background-image: uri("");
     position:relative;
     h1, h2, p{
         color:white;
+    }
+    .card-icon{
+        position:absolute;
+        right:10px;
     }
 }
 
@@ -25,7 +28,7 @@
 }
 
 .card-content{
-    width:80%;
+    width:65%;
     margin:auto;
     p{
         font-size:0.9em;
@@ -38,4 +41,28 @@
         font-size:0.8em;
         color:$desaturated-blue;
     }
+}
+
+.pink{
+    background-color:$light-red
+}
+
+.orange{
+    background-color:$orange;
+}
+
+.blue{
+    background-color:$soft-blue;
+}
+
+.green{
+    background-color:$lime-green;
+}
+
+.purple{
+    background-color:$violet;
+}
+
+.yellow{
+    background-color:$yellow;
 }

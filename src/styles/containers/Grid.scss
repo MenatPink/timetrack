@@ -8,9 +8,17 @@
 
 //MEDIA - Mobile
 
-@media screen and (max-width: 375px) {
+
+@media screen and (max-width: 1123px){
+    .grid{
+        grid-template-columns:auto auto;
+        grid-template-rows:initial;
+    }
+}
+
+@media screen and (max-width: 590px) {
     .grid{
         grid-template-columns:auto;
-        grid-template-rows: auto auto auto auto auto auto;
+        grid-template-rows: 500px auto auto auto auto auto;
     }
 }

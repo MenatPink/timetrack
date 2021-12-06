@@ -2,19 +2,18 @@ import React from 'react';
 import '../styles/globals.scss';
 import '../styles/components/Card.scss';
 
-// console.log(ellipsis);
-
-const Card = () => {
+const Card = (props: any) => {
 	return (
-		<div className="card">
+		<div className= {`card ${props.color}`}>
+			<img className="card-icon" src={`/images/icon-${props.icon}.svg`} alt="Ellipsis Icon" />
 			<div className="card-inner">
 				<div className="card-content">
 					<div className="mt-2 flex-between center-align">
-						<p>Work</p>
+						<p>{props.title}</p>
 						<img src="/images/icon-ellipsis.svg" alt="" />
 					</div>
-					<h1 className = "font-light">32hrs</h1>
-					<p className = "font-medium mb-3 mt-1 card-caption">Last Week - 36hrs</p>
+					<h1 className = "font-light">{props.hrs}hrs</h1>
+					<p className = "font-medium mb-3 mt-1 card-caption">Last Week - {props.prevWeekHours}hrs</p>
 				</div>
 			</div>
 		</div>
