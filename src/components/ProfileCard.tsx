@@ -1,21 +1,28 @@
 import React from 'react';
 import '../styles/components/ProfileCard.scss';
 
-const ProfileCard = () => {
+interface IProps {
+	timeFrameData?: any;
+	changeTimeFrameToDaily?: any,
+	changeTimeFrameToWeekly?: any,
+	changeTimeFrameToMonthly?: any,
+}
+
+const ProfileCard = (props: IProps) => {
 	return (
 		<div className="profile-card">
 			<div className="profile-card-inner">
-				<div className="profile-card-content">  
+				<div className="profile-card-content">
 					<img src="/images/image-jeremy.png" alt="" />
-					<p className = "font-medium mt-2">report for</p>
-					<h1 className = "font-light">Jeremy Robson</h1>
+					<p className="font-medium mt-2">report for</p>
+					<h1 className="font-light">Jeremy Robson</h1>
 				</div>
 			</div>
-					<ul className = "time-selector-container">
-						<li>Daily</li>
-						<li>Weekly</li>
-						<li>Monthly</li>
-					</ul>
+			<ul className="time-selector-container">
+				<li onClick={() => props.changeTimeFrameToDaily()}>Daily</li>
+				<li onClick={() => props.changeTimeFrameToWeekly()}>Weekly</li>
+				<li onClick={() => props.changeTimeFrameToMonthly()}>Monthly</li>
+			</ul>
 		</div>
 	);
 };

@@ -17,9 +17,22 @@ class App extends React.Component<any, any> {
 		this.state = {
 			loading: true,
 			cards: null,
+			time: 'daily'
 		};
 	}
 
+	timeFrameClickDaily = () => {
+		this.setState({time:'daily'})
+	}
+
+	timeFrameClickWeekly = () => {
+		this.setState({time:'weekly'})
+	}
+
+	timeFrameClickMonthly = () => {
+		this.setState({time:'monthly'})
+	}
+	
 	async componentDidMount() {
 		fetch('data.json')
 			.then((res) => res.json())
@@ -34,7 +47,13 @@ class App extends React.Component<any, any> {
 				{this.state.loading || !this.state.cards ? (
 					<div>Loading...</div>
 				) : (
-					<Grid data = {this.state.cards}/>
+					<Grid 
+					data = {this.state.cards} 
+					timeFrame={this.state.time}
+					changeTimeFrameToDaily={this.timeFrameClickDaily}
+					changeTimeFrameToWeekly={this.timeFrameClickWeekly}
+					changeTimeFrameToMonthly={this.timeFrameClickMonthly}
+					/>
 				)}
 			</div>
 		);
