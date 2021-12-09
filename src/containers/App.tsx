@@ -1,15 +1,26 @@
 import React from 'react';
 import Grid from './Grid';
+import { connect } from 'react-redux';
 import '../styles/containers/App.scss';
+import {
+	setTimeFrameToDaily,
+	setTimeFrameToWeekly,
+	setTimeFrameToMonthly,
+} from '../actions';
 
-// interface ITimeframes {
-// }
-// interface IProps {
-// }
+const mapStateToProps = (state: any) => {
+	return {
+		timeFrame: state.timeFrame,
+	};
+};
 
-// interface IState{
-// 	cardData: Array<ITimeframes>
-// }
+const mapDispatchToProps = (dispatch: any) => {
+	return {
+		setTimeFrameToDaily: () => dispatch(setTimeFrameToDaily()),
+		setTimeFrameToWeekly: () => dispatch(setTimeFrameToWeekly()),
+		setTimeFrameToMonthly: () => dispatch(setTimeFrameToMonthly()),
+	};
+};
 
 class App extends React.Component<any, any> {
 	constructor(props: any) {
@@ -17,23 +28,10 @@ class App extends React.Component<any, any> {
 		this.state = {
 			loading: true,
 			cards: null,
-			time: 'daily'
 		};
 	}
 
-	timeFrameClickDaily = () => {
-		this.setState({time:'daily'})
-	}
-
-	timeFrameClickWeekly = () => {
-		this.setState({time:'weekly'})
-	}
-
-	timeFrameClickMonthly = () => {
-		this.setState({time:'monthly'})
-	}
-	
-	async componentDidMount() {
+	componentDidMount() {
 		fetch('data.json')
 			.then((res) => res.json())
 			.then((data) => {
@@ -47,12 +45,12 @@ class App extends React.Component<any, any> {
 				{this.state.loading || !this.state.cards ? (
 					<div>Loading...</div>
 				) : (
-					<Grid 
-					data = {this.state.cards} 
-					timeFrame={this.state.time}
-					changeTimeFrameToDaily={this.timeFrameClickDaily}
-					changeTimeFrameToWeekly={this.timeFrameClickWeekly}
-					changeTimeFrameToMonthly={this.timeFrameClickMonthly}
+					<Grid
+						data={this.state.cards}
+						timeFrame={this.props.timeFrame}
+						changeTimeFrameToDaily={this.props.setTimeFrameToDaily}
+						changeTimeFrameToWeekly={this.props.setTimeFrameToWeekly}
+						changeTimeFrameToMonthly={this.props.setTimeFrameToMonthly}
 					/>
 				)}
 			</div>
@@ -60,4 +58,4 @@ class App extends React.Component<any, any> {
 	}
 }
 
-export default App;
+export default connect(mapStateToProps, mapDispatchToProps)(App);

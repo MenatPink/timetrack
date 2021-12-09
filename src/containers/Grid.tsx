@@ -3,13 +3,6 @@ import Card from '../components/Card';
 import ProfileCard from '../components/ProfileCard';
 import '../styles/containers/Grid.scss';
 
-// interface IProps{
-// 	title: string,
-// 	hrs: number,
-// 	prevWeekHours: number,
-// 	color: string,
-// 	icon: string
-// }
 
 interface IProps {
 	data: any;
@@ -20,7 +13,6 @@ interface IProps {
 }
 
 const Grid = (props: IProps) => {
-	console.log(props.timeFrame);
 	const icons = ['work', 'play', 'study', 'exercise', 'social', 'self-care'];
 	const colors = ['orange', 'blue', 'pink', 'green', 'purple', 'yellow'];
 
@@ -51,7 +43,6 @@ const Grid = (props: IProps) => {
 						});
 						return  dailyCards ;
 					case 'weekly':
-						console.log(`Now we're in weekly`);
 						const weeklyCards = props.data.map((card: any, i: number) => {
 							return (
 								<Card
